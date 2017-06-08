@@ -44,7 +44,7 @@
         }
         readonly static Type XtraLocalizerType = typeof(DevExpress.Utils.Localization.XtraLocalizer<>);
         readonly static Type[] keyTypes = new Type[] { 
-            XtraLocalizerType,
+            typeof(DevExpress.Data.ResFinder),
             typeof(DevExpress.Utils.ResFinder),
             typeof(DevExpress.Printing.ResFinder),
             typeof(DevExpress.XtraEditors.BaseEdit),

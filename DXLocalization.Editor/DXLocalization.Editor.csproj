@@ -42,6 +42,9 @@
     <Reference Include="FastAccessors">
       <HintPath>..\Libs\FastAccessors.dll</HintPath>
     </Reference>
+    <Reference Include="POCO.Monads">
+      <HintPath>..\Libs\POCO.Monads.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.Data.v17.1" />
     <Reference Include="DevExpress.Mvvm.v17.1" />
     <Reference Include="DevExpress.Printing.v17.1.Core" />
@@ -66,7 +69,6 @@
   <ItemGroup>
     <Compile Include="Data\Attributes.cs" />
     <Compile Include="Data\IPreview.cs" />
-    <Compile Include="Utils\Runtime.cs" />
     <Compile Include="ViewModels\Preview\PreviewItem.cs" />
     <Compile Include="Views\Previews\Data\HierarchicalRow.cs" />
     <Compile Include="Views\Previews\Paint\HighligntPaint.cs" />

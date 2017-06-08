@@ -17,6 +17,7 @@ namespace DXLocalizationEditor.Views {
             treeList1.BeginUpdate();
             treeList1.CheckBoxFieldName = "IsActive";
             treeList1.DataSource = Data.HierarchicalRow.GetRows();
+            treeList1.Columns["ParentID"].OptionsColumn.ShowInCustomizationForm = false;
             treeList1.Columns["SID"].SortOrder = System.Windows.Forms.SortOrder.Ascending;
             treeList1.Columns["SID"].SummaryFooter = DevExpress.XtraTreeList.SummaryItemType.Count;
             treeList1.Columns["Age"].SummaryFooter = DevExpress.XtraTreeList.SummaryItemType.Average;
@@ -47,7 +48,6 @@ namespace DXLocalizationEditor.Views {
                     ((TreeListPreview)treeList1).ShowFilterPopup(treeList1.Columns["SID"], DevExpress.XtraTreeList.FilterPopupMode.CheckedList);
                 if(name.StartsWith("FilterEditor"))
                     treeList1.ShowFilterEditor(treeList1.Columns["Age"]);
-                //
                 HighlightPaint.InvalidateControls(treeList1);
             }
         }

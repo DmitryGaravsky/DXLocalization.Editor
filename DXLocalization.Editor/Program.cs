@@ -5,14 +5,12 @@ using DevExpress.XtraEditors;
 
 namespace DXLocalizationEditor {
     static class Program {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main() {
-            WindowsFormsSettings.EnableFormSkins();
+            WindowsFormsSettings.SetPerMonitorDpiAware();
             WindowsFormsSettings.ScrollUIMode = ScrollUIMode.Touch;
-            WindowsFormsSettings.DefaultLookAndFeel.SetSkinStyle("Office 2016 Colorful");
+            WindowsFormsSettings.DefaultLookAndFeel.SetSkinStyle(DevExpress.LookAndFeel.SkinStyle.Office2019Colorful);
+            WindowsFormsSettings.FilterCriteriaDisplayStyle = FilterCriteriaDisplayStyle.Visual;
             //
             using(var paint = Views.Utils.HighlightPaint.Instance) {
                 XPaint.CreateCustomPainter(paint);

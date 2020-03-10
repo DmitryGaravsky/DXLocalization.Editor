@@ -1,6 +1,7 @@
 ﻿namespace DXLocalizationEditor.Views.Utils {
     using System.Drawing;
     using System.Windows.Forms;
+    using DevExpress.Utils;
     using DevExpress.Utils.Drawing;
     using DevExpress.Utils.Paint;
 
@@ -11,7 +12,12 @@
         string HighlightString;
         protected override void InternalDrawString(GraphicsCache cache, string s, Font font, Rectangle r, Brush foreBrush, StringFormat strFormat) {
             if(!string.IsNullOrEmpty(HighlightString) && s == HighlightString)
-                cache.DrawRectangle(Pens.Red, r);
+                cache.DrawRectangle(cache.GetPen(Color.Red, 2), r);
+            base.InternalDrawString(cache, s, font, r, foreBrush, strFormat);
+        }
+        protected override void InternalDrawString(GraphicsCache cache, string s, Font font, Rectangle r, Brush foreBrush, StringFormatInfo strFormat) {
+            if(!string.IsNullOrEmpty(HighlightString) && s == HighlightString)
+                cache.DrawRectangle(cache.GetPen(Color.Red, 2), r);
             base.InternalDrawString(cache, s, font, r, foreBrush, strFormat);
         }
         //

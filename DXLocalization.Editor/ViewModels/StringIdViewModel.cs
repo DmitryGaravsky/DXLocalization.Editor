@@ -53,6 +53,12 @@
             if(!stringTables.TryGetValue(localizerType, out stringTable)) {
                 var localizer = Activator.CreateInstance(localizerType);
                 stringTable = localizer.@ƒ(localizerType.BaseType, "stringTable") as IDictionary;
+                if(stringTable == null) {
+                    var pInfo_StringTable = localizerType.GetProperty("StringTable",
+                        System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+                    if(pInfo_StringTable != null)
+                        stringTable = pInfo_StringTable.GetValue(localizer) as IDictionary;
+                }
                 stringTables.Add(localizerType, stringTable ?? EmptyTable);
             }
             return stringTable ?? EmptyTable;
